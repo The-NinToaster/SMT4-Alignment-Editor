@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Shin Megami Tensei 4 Alignment Editor</title>
+    <style>
+        p,h1,div {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+        }
+        ol,ul {
+            display: table;
+            margin: 0 auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Shin Megami Tensei 4 Alignment Editor</h1>
+<p><small>by <a href="https://reddit.com/u/ThatManOfCulture">u/ThatManOfCulture</a></small></p>
+
+<div>
+    <label for="savefile">Select a savefile:</label>
+    <input type="file" id="savefile" name="savefile" onchange="readSavefile()">
+</div>
+
+<div>
+    <label for="points">Alignment points (+100 to -100):</label>
+    <input type="number" id="points" name="points" min="-100" max="100">
+</div>
+
+<div>
+    <input id="btnExport" type="button" value="Export" onclick="exportSavefile()" />
+</div>
+
+<div>
+    <h4>To unlock neutral ending:</h4>
+
+    <ol>
+        <li>Use a savefile prior to the King Kenji boss fight in Infernal Tokyo.</li>
+        <li>Set a value such that the sum with below answers will result in a value between +8 and -8.</li>
+    </ol>
+
+    <p>"Push the button?"</p>
+    <ul>
+        <li>[+5] Press the button</li>
+        <li>[+0] Don't press the button</li>
+    </ul>
+
+    <p>"Do you intend to preserve the current status quo? Are you going to destroy the order of things?"</p>
+    <ul>
+        <li>[+10] I'll preserve the status quo.</li>
+        <li>[-10] I'll destroy the order of things.</li>
+    </ul>
+
+    </p>
+</div>
+
+<script>
+function readSavefile()
+{
+    var savefile = document.getElementById("savefile").files[0]
+    if (savefile)
+    {
+        var reader = new FileReader();
+        reader.readAsArrayBuffer(savefile);
+        reader.onload = function (evt)
+        {
+            var arrayBuffer = evt.target.result;
+            var bytes = new Uint16Array(arrayBuffer)
+            document.getElementById("points").value = bytes[0xc2];
+        }
+        reader.onerror = function (evt)
+        {
+            document.getElementById("fileContents").innerHTML = "error reading savefile";
+        }
+    }
+}
+
+function exportSavefile()
+{
+    var savefile = document.getElementById("savefile").files[0]
+    if (savefile)
+    {
+        var reader = new FileReader();
+        reader.readAsArrayBuffer(savefile);
+        reader.onload = function (evt)
+        {
+            var arrayBuffer = evt.target.result;
+            var bytes = new Uint16Array(arrayBuffer)
+            var newPoints = document.getElementById("points").value
+            bytes[0xc2] = newPoints
+
+            var newBytes = new Uint16Array(bytes);
+            var blob = new Blob([newBytes]);
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = savefile.name;
+            link.click();
+        }
+        reader.onerror = function (evt)
+        {
+            document.getElementById("fileContents").innerHTML = "error reading savefile";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
