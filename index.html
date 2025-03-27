@@ -1,114 +1,198 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<title>SMT4/4A Alignment Editor</title>
 <head>
-    <meta charset="utf-8" />
-    <title>Shin Megami Tensei 4 Alignment Editor</title>
-    <style>
-        p,h1,div {
-            margin: auto;
-            width: 50%;
-            padding: 10px;
-            text-align: center;
-        }
-        ol,ul {
-            display: table;
-            margin: 0 auto;
-            text-align: left;
-        }
-    </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toolcool-range-slider/dist/plugins/tcrs-moving-tooltip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toolcool-range-slider/dist/plugins/tcrs-marks.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toolcool-range-slider/dist/toolcool-range-slider.min.js"></script>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
 </head>
 <body>
+<div class="main_content">
+    <div class="alt">
+        <div class="ascii-art">
+                                                                                                                                                                                                                                                                               @@@@@@@@@@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@  
+             @@@@@@@@@    @@@@@@   @@@@@    @@@@@@   @@@@@@   @@@@@          @@@@@@      @@@@@@   @@@@@@@@@@@@     @@@@@@@@@@        @@@        @@@@@@      @@@@@@   @@@@@@        @@@@@@@@@@@@@@@  @@@@@@@@@@@@  @@@@@@    @@@@    @@@@@@@@@    @@@@@@@@@@@@   @@@@@   @@@@      @@@@@@@@@    @@@@@@@@               @@@@@       
+           @@@@   @@@@    @@@@     @@@@     @@@@     @@@@@    @@@            @@@@@     @@@@@@     @@@@    @@@    @@@@  @@@@@        @@@@        @@@@@@     @@@@@     @@@@         @@@   @@@@  @@@   @@@@    @@@   @@@@@@    @@@   @@@@  @@@@@    @@@@    @@@    @@@@     @@        @@@@@@       @@@@@@                @@@@        
+           @@@    @@@     @@@     @@@@     @@@@     @@@@@@   @@@            @@@@@@    @@@@@@     @@@@     @@    @@@     @@@        @@@@        @@@@@@     @@@@@@     @@@@        @@@   @@@@   @@   @@@@     @@    @@@@@@   @@@   @@@@    @@@    @@@@     @@    @@@@                @@@@@        @@@@@                @@@          
+          @@@@    @@     @@@@    @@@@     @@@@     @@@@@@@   @@@           @@@@@@@   @@@@@@@     @@@     @@@  @@@@      @@@       @@@@@        @@@@@@    @@@@@@     @@@@         @@   @@@@   @@@   @@@@     @@   @@@@@@   @@@    @@@@    @@     @@@@     @@   @@@@                @@@@@@       @@@@@@               @@@           
+          @@@@    @@    @@@@     @@@@     @@@@     @@@@@@@  @@@            @@@@@@   @@@@@@@     @@@@     @@   @@@@      @@       @@@@@        @@@@@@    @@@@@@     @@@@         @@   @@@@    @@   @@@@     @@   @@@@@@@  @@@@   @@@@     @     @@@@     @@    @@@@               @@@@@@        @@@@@@             @@@@            
+         @@@@@    @    @@@@     @@@@     @@@@     @@@ @@@  @@@            @@@@@@@  @@@@@@@     @@@@      @   @@@@       @       @@@@@@       @@@ @@@   @@@@@@     @@@@         @     @@@@    @   @@@@      @    @@@@@@@  @@@    @@@@@    @    @@@@      @    @@@@                @@@@@         @@@@@             @@@@             
+         @@@@@         @@@@    @@@@     @@@@     @@@ @@@@ @@@            @@@ @@@  @@@ @@@     @@@@   @      @@@@               @@@@@@        @@@@@@@  @@ @@@@     @@@@              @@@@        @@@@   @       @@@ @@@@ @@@     @@@@@        @@@@   @       @@@@                @@@@@          @@@@@            @@@               
+         @@@@@        @@@@    @@@@      @@@@     @@@ @@@@ @@@            @@@@@@@ @@@ @@@@     @@@@ @@      @@@@               @@@@@@@       @@@ @@@  @@ @@@@     @@@@              @@@@         @@@@ @@       @@@  @@@ @@@      @@@@@        @@@@ @@       @@@@                @@@@@@         @@@@@@           @@@                
+          @@@@       @@@@@@@@@@@@@     @@@@     @@@  @@@@@@@            @@@ @@@ @@@ @@@@     @@@@@@@@     @@@@   @@@@@@@@    @@  @@@       @@@ @@@@ @@ @@@@     @@@@              @@@@@        @@@@@@@@      @@@@ @@@@ @@@      @@@@@       @@@@@@@@       @@@@                @@@@@          @@@@@@          @@@                 
+          @@@@@     @@@@     @@@@     @@@@     @@@   @@@@@@            @@@  @@@@@@ @@@@     @@@@  @@      @@@@    @@@@      @@  @@@@      @@@  @@@ @@  @@@     @@@@               @@@@        @@@@  @@       @@@  @@@@@@@        @@@@      @@@@  @@       @@@@                @@@@@           @@@@@@         @@@                  
+          @@@@@     @@@@    @@@@     @@@@     @@@    @@@@@@           @@@  @@@@@@  @@@@     @@@   @      @@@@     @@@      @@   @@@@      @@@ @@@@@@  @@@@     @@@@              @@@@        @@@@   @       @@@   @@@@@@         @@@@     @@@@   @       @@@@                @@@@@@           @@@@@         @@@                   
+     @    @@@@@    @@@@    @@@@      @@@@     @@@    @@@@@            @@@  @@@@@  @@@@     @@@@      @  @@@@     @@@@     @@   @@@@      @@@  @@@@@  @@@@     @@@@              @@@@         @@@@      @   @@@    @@@@@    @     @@@@     @@@@      @    @@@                 @@@@@            @@@@@       @@@@                    
+    @     @@@@    @@@@     @@@@     @@@@     @@@     @@@@            @@@  @@@@@  @@@@     @@@@      @   @@@@    @@@@     @@@@@@@@@@     @@@   @@@@  @@@@     @@@@               @@@@        @@@@      @    @@@   @@@@@@    @     @@@@    @@@@      @    @@@@                @@@@@            @@@@@@      @@@@                     
+   @@     @@@@   @@@@     @@@@     @@@@     @@@      @@@@           @@@   @@@@  @@@@     @@@@     @@   @@@@    @@@@     @@    @@@@     @@@@  @@@@   @@@@     @@@@              @@@@        @@@@     @@    @@@    @@@@@    @@     @@@@   @@@@     @@    @@@@                @@@@@@            @@@@@@     @@@                       
+   @@     @@@    @@@@    @@@@      @@@@     @@@      @@@            @@@   @@@   @@@@     @@@@    @@@   @@@@   @@@@@    @@     @@@@     @@@   @@@   @@@@     @@@@              @@@@         @@@@    @@@   @@@     @@@@    @@@    @@@@    @@@@    @@@   @@@@                 @@@@@             @@@@@@    @@@                        
+  @@@@   @@@    @@@@     @@@@     @@@@     @@@       @@            @@@   @@@   @@@@     @@@@    @@@    @@@   @@@@@    @@      @@@     @@@   @@@   @@@@     @@@@              @@@@         @@@@    @@@   @@@     @@@@@    @@@@  @@@@    @@@@    @@@    @@@@                @@@@@              @@@@@    @@@                         
+ @@@@@@@@@    @@@@@@   @@@@@@   @@@@@@   @@@@@       @           @@@@@   @@   @@@@@   @@@@@@@@@@@@     @@@@@@@@@@   @@@@    @@@@@@  @@@@@   @@   @@@@@    @@@@@             @@@@@@      @@@@@@@@@@@@   @@@@@    @@@@    @@@@@@@@@    @@@@@@@@@@@@   @@@@@@               @@@@@@              @@@@@   @@@                          
+                                                                                                                                                                                                                                                                         @@@@@              @@@@@@ @@@@                           
+                                                                                                                                                                                                                                                                        @@@@@               @@@@@@@@@@                            
+                                                                                                                                                                                                                                                                        @@@@@               @@@@@@@@@                             
+                                                                                                          @@@   @@      @@@@@@@@  @@@@@@  @@   @@ @@@  @@@ @@@@@@@ @@@   @@ @@@@@@@@         @@@@@@@@ @@@@@@   @@@@@@@ @@@@@@@@  @@@@@  @@@@@@@                        @@@@@                @@@@@@@@                              
+                                                                                                         @@@@   @@         @@    @@@      @@@  @@ @@@  @@@ @@      @@@@  @@    @@            @@@      @@   @@    @@@      @@    @@   @@ @@@  @@@                      @@@@@                 @@@@@@@                               
+                                                                                                        @@ @@   @@         @@    @@       @@@@ @@ @@@  @@@ @@      @@@@  @@    @@            @@@      @@   @@    @@@      @@    @@   @@ @@@   @@                     @@@@@@                 @@@@@@                                
+                                                                                                        @@  @@  @@         @@    @@ @@@@  @ @@ @@ @@@@@@@@ @@@@@@  @@ @@ @@    @@            @@@@@@   @@   @@    @@@      @@    @@   @@ @@@@@@@                     @@@@@@                  @@@@@                                 
+                                                                                                       @@@@@@@  @@         @@    @@   @@  @  @@@@ @@@@@@@@ @@      @@  @@@@    @@            @@@      @@   @@    @@@      @@    @@   @@ @@@   @@                  @@@@@@@@                  @@@@                                  
+                                                                                                       @@@  @@  @@         @@    @@@  @@  @   @@@ @@ @@ @@ @@      @@  @@@@    @@            @@@      @@   @@    @@@      @@    @@   @@ @@@   @@             @@@@@@@@@@@@@@@@@@             @@@                                   
+                                                                                                       @@   @@@ @@@@@@@ @@@@@@@@  @@@@@@  @   @@@ @@ @@ @@ @@@@@@@ @@   @@@    @@            @@@@@@@@ @@@@@@   @@@@@@@    @@     @@@@@  @@@   @@                                                                                  
+        </div>
+    </div>
+    <div style="margin:20px; font-size: 12pt;">
+        Choose your game. SMTIV is selected by default.<br>Pick the correct game for your save file!
+    </div>
+    <div id="game_select">
+        <button data-ref="four" class="game_sel toggle" id="buttonfour" title="SMT IV"></button> 
+        <button data-ref="apoc" class="game_sel toggle" id="buttonapoc" title="SMT IV: Apocalypse"></button>
+    </div>
 
-<h1>Shin Megami Tensei 4 Alignment Editor</h1>
-<p><small>by <a href="https://reddit.com/u/ThatManOfCulture">u/ThatManOfCulture</a></small></p>
+    <div id="main">
+        <div id="file_section">
+        <label for="savefile" id="savelabel" class="file_button">Select savefile </label>
+        <label for="reset_file" id="resetlabel" class="file_button">Remove savefile</label>
+        <label for="exportfile" id="exportlabel" class="file_button">Write & Export</label>
+        <input id="exportfile" class="bttn_hide" type="button" value="Export">
+        <input type="file" id="savefile" class="bttn_hide" accept=".sav">
+        <input id="resetfile" class="bttn_hide" type="button" value="Reset">
+        </div>
+        <div id="alignment">
+            <div id="four" class="toggled">
+                <div class="holder">
+                    <div class="bg_slide_holder">
+                        <div class="img_holder">
+                            <div class="algnimg">
+                                <img id="bg4" alt="alignment background" src="./bgs/4/4_neutral.png"/>
+                            </div>
+                        </div>
+                    <div class="slide_align"> 
+                        <div id="slide_4" class="slide_holder">
+                            <tc-range-slider id="align4" css-links="style.css" theme="four" pointer-shape="lilguy"></tc-range-slider>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="preset_holder">
+                        <div class="preset_label">Alignment Presets (Affects your Ending)</div>
+                        <div class="align_preset">
+                            <button class="preset_bttn" id="chaos_bttn" title="Chaos: -100 to -9 | Side with Walter and Lucifer"></button>
+                            <button class="preset_bttn neutral_bttn" id="4_neutral" title="Neutral: between -8 and 8 | Side with Isabeau and Stephen"></button>
+                            <button class="preset_bttn" id="law_bttn" title="Law: 9 to 100 | Side with Jonathan and Merkabah"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="apoc" class="toggled hide">
+                <div class="holder">
+                    <div class="img_holder">
+                        <div class="algnimg">
+                        <img id="bgapoc" alt="alignment background" src="./bgs/4a/4a_light.png"/>
+                    </div>
+                    </div>
+                    <div class="slide_align">
+                        <div class="slide_holder">
+                                <div id="slide_apoc">
+                                    <tc-range-slider class ="apoc_slider" id="alignapoc_light" css-links="style.css" theme="apoc" pointer-shape="lilguy"></tc-range-slider>
+                                </div>
+                                <div id="slide_apoc">
+                                    <tc-range-slider class ="apoc_slider" id="alignapoc_dark" css-links="style.css" theme="apoc" pointer-shape="lilguy"></tc-range-slider>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="preset_label">Ending Chosen (Necessary to Calculating Penalties) <br><div id="ending_note" 
+                        title="Cannonically these are the bad endings and the game ends prematurely. You can choose them during the boss battles at the Reactor but you get massive cop-out endings and Flynn gets disappointed with you. You really want to make Flynn disappointed in you? He came all this way and you played this entire game up until now and you're siding with the lord's pawns to own Khrishna? Die on your hill if you wish, but know that even ATLUS thinks you're wrong. Source: Playing the game">
+                        <a href="https://gist.github.com/The-NinToaster/f88978cd6b71003664d63d5047489f53" target="_blank" rel="noopener norefferer">Where are the law and Chaos Endings?? (Click or Hover) </a></div></div>
+                    <div class="align_preset">
+                        <button class="preset_bttn" id="bonds_bttn" title="Bonds / Peace | Go against Dagda for your friends and humanity"></button>
+                        <button class="preset_bttn" id="msscr_bttn" title="Massacre / Anarchy | Side with Dagda to start anew as a god"></button>
+                    </div>
+                    <div class="preset_label">Alignment Presets (Affects Penalties)</div>
+                    <div class="align_preset">
+                        <button class="preset_bttn" id="light_bttn" title="Light: Light > Dark by 41 or more"></button>
+                        <button class="preset_bttn neutral_bttn" id="4a_neutral" title="Neutral: Difference between Light/Dark is less than 40"></button>
+                        <button class="preset_bttn" id="dark_bttn" title="Dark: Light < Dark by 41 or more"></button>
+                    </div>
+                        <div class="preset_label" id="dds-net">DDS-NET Titles</div>
+                    <div class="align_preset">
+                        <button class="preset_bttn" id="light50_bttn" title="Weaver of Bonds - 50 Light Alignment"></button>
+                        <button class="preset_bttn" id="light75_bttn" title="Nurturer of Bonds - 75 Light Alignment"></button>
+                        <button class="preset_bttn" id="light95_bttn" title="Unbreakable - 95 Light Alignment"></button>
+                        <button class="preset_bttn" id="dark50_bttn" title="The Puppet - 50 Dark Alignment"></button>
+                        <button class="preset_bttn" id="dark75_bttn" title="The Right Hand - 75 Dark Alignment"></button>
+                        <button class="preset_bttn" id="dark95_bttn" title="The Successor - 95 Dark Alignment"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hints">
+        <h4>To unlock neutral ending:</h4>
 
-<div>
-    <label for="savefile">Select a savefile:</label>
-    <input type="file" id="savefile" name="savefile" onchange="readSavefile()">
+        <ol>
+            <li>Use a savefile prior to the King Kenji boss fight in Infernal Tokyo.</li>
+            <li>Set a value such that the sum with below answers will result in a value between +8 and -8.</li>
+        </ol>
+
+        <p>"Push the button?"</p>
+        <ul>
+            <li>[+5] Press the button</li>
+            <li>[+0] Don't press the button</li>
+        </ul>
+
+        <p>"Do you intend to preserve the current status quo? Are you going to destroy the order of things?"</p>
+        <ul>
+            <li>[+10] I'll preserve the status quo.</li>
+            <li>[-10] I'll destroy the order of things.</li>
+        </ul>
+
+        </p>
+        </div>
+        <div id="scroll_test">
+            peepeepoopoo
+        </div>
+    </div>
 </div>
-
-<div>
-    <label for="points">Alignment points (+100 to -100):</label>
-    <input type="number" id="points" name="points" min="-100" max="100">
+<div id="foot" class="expand">
+    <div id="mini_credit">
+    <img class="lilfooterguy" src="./bgs/lil_guy.gif" alt="lilguy"/>
+    <small id="credits">
+    by <a href="https://reddit.com/u/ThatManOfCulture">u/ThatManOfCulture</a> and <a href="https://reddit.com/u/NinToasterOven">The-Nintoaster</a>
+    </small>
+    <img class="lilfooterguy" src="./bgs/lil_guy.gif" alt="lilguy"/>
+    </div>
+    <div id="additional">
+        <div id="add_section">
+            <div id="other_tools">Other SMTIV + Apocalypse Tools and Resources:</div>
+            <div class="resource_link">
+                <div class="lang_tag">
+                    <img alt="English" src="https://img.shields.io/badge/English-blue">
+                </div>
+                <div class="resource">
+                    <a href="https://aqiu384.github.io/megaten-fusion-tool/home">Megami Tensei Fusion Tools</a>
+                </div>
+            </div>
+            <div class="resource_link">
+                <div class="lang_tag">
+                    <img alt="Japanese" src="https://img.shields.io/badge/Japanese-red">
+                </div>
+            </div>
+        </div>
+        <div id="add_section">1</div>
+        <div id="add_section">
+        </div>
+    </div>
+    <br>
+    <img src="./bgs/credit.png" alt="test"/>
 </div>
-
-<div>
-    <input id="btnExport" type="button" value="Export" onclick="exportSavefile()" />
-</div>
-
-<div>
-    <h4>To unlock neutral ending:</h4>
-
-    <ol>
-        <li>Use a savefile prior to the King Kenji boss fight in Infernal Tokyo.</li>
-        <li>Set a value such that the sum with below answers will result in a value between +8 and -8.</li>
-    </ol>
-
-    <p>"Push the button?"</p>
-    <ul>
-        <li>[+5] Press the button</li>
-        <li>[+0] Don't press the button</li>
-    </ul>
-
-    <p>"Do you intend to preserve the current status quo? Are you going to destroy the order of things?"</p>
-    <ul>
-        <li>[+10] I'll preserve the status quo.</li>
-        <li>[-10] I'll destroy the order of things.</li>
-    </ul>
-
-    </p>
-</div>
-
-<script>
-function readSavefile()
-{
-    var savefile = document.getElementById("savefile").files[0]
-    if (savefile)
-    {
-        var reader = new FileReader();
-        reader.readAsArrayBuffer(savefile);
-        reader.onload = function (evt)
-        {
-            var arrayBuffer = evt.target.result;
-            var bytes = new Uint16Array(arrayBuffer)
-            document.getElementById("points").value = bytes[0xc2];
-        }
-        reader.onerror = function (evt)
-        {
-            document.getElementById("fileContents").innerHTML = "error reading savefile";
-        }
-    }
-}
-
-function exportSavefile()
-{
-    var savefile = document.getElementById("savefile").files[0]
-    if (savefile)
-    {
-        var reader = new FileReader();
-        reader.readAsArrayBuffer(savefile);
-        reader.onload = function (evt)
-        {
-            var arrayBuffer = evt.target.result;
-            var bytes = new Uint16Array(arrayBuffer)
-            var newPoints = document.getElementById("points").value
-            bytes[0xc2] = newPoints
-
-            var newBytes = new Uint16Array(bytes);
-            var blob = new Blob([newBytes]);
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = savefile.name;
-            link.click();
-        }
-        reader.onerror = function (evt)
-        {
-            document.getElementById("fileContents").innerHTML = "error reading savefile";
-        }
-    }
-}
-</script>
-
 </body>
 </html>

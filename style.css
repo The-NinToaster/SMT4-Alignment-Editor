@@ -1,0 +1,407 @@
+@font-face
+{
+    font-family: 'Silkscreen';
+    src: url('font/slkscr.ttf') format('truetype');
+}
+
+.alt
+{
+    display: flex;
+}
+
+#hints
+{
+    display: flexbox;
+}
+
+.ascii-art
+{
+    font-family: monospace;
+    font-size: 3pt;
+    white-space: pre;
+    background-image: linear-gradient(90deg, rgba(0,106,197,1) 0%, rgba(255,41,243,1) 25%, rgba(0,106,197,1) 50%, rgba(41,255,94,1) 75%,rgba(0,106,197,1) 100%);
+    color:transparent;
+    background-size: 500% 100%;
+    background-clip: text;
+    filter: saturate(150%) brightness(150%);
+    margin: 10px;
+    letter-spacing: 0;
+    animation: gradient 90s ease infinite;
+
+}
+
+@keyframes gradient {
+    to {background-position: -500% 0;}
+}
+
+.hide
+{
+    display:none
+}
+
+#foot
+{
+    display:block;
+    position:fixed;
+    bottom:0px;
+    width:99.9%;
+    background-color: black;
+    border: 1px red dashed;
+    height:50px;
+    overflow: hidden;
+    transition: height 0.3s;
+    margin-top: 20px;
+
+}
+
+#foot:hover
+{
+    height: 900px;
+    z-index: 50;
+    transition: all 0.3s;
+}
+
+#mini_credit
+{
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#additional
+{
+    width: 100%;
+    height: 700px;
+    justify-content: center;
+    display: flex;
+    
+}
+
+#scroll_test
+{
+    text-align: center;
+    justify-content: center;
+    height: 300px;
+}
+
+#add_section
+{
+    width:33%;
+    height: 100%;
+}
+
+.lilfooterguy
+{
+    width: 30px;
+    padding: 10px;
+}
+
+.resource_link
+{
+    display: block;
+    text-align: center;
+    margin: 25px;
+}
+
+.lang_tag
+{
+    margin:10px;
+    text-align: center;
+}
+
+#other_tools
+{
+    height: 50px;
+    width: 400px;
+    border:3px white solid;
+    margin:50px;
+    text-align: center;
+}
+
+#credits
+{
+    color: white;
+}
+
+
+.game_sel
+{
+
+    height: 65px;
+    width: 150px;
+    border: 3px green solid;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.selection
+{
+    border: 3px red solid;
+}
+
+#buttonfour
+{
+    background-image: url(4.webp);
+    background-size: 100%, 125%;
+    background-color:black;
+
+}
+
+#buttonapoc
+{
+
+    background-size: 100%, 125%;
+    background-color:black;
+    background-image: url(apocalypse.webp);
+}
+
+#game_select 
+{
+    display: block;
+    margin: 10px;
+}
+
+.file_button 
+{
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: .5s;
+  margin: 15px;
+  font-size: smaller;
+  cursor: pointer;
+}
+
+label:hover 
+{
+  background-color: darkgreen;
+  color: white;
+}
+
+.bttn_hide
+{
+    position: absolute; 
+    opacity: 0;
+}
+
+
+.align_preset
+{
+    display:inline-flexbox;
+    margin: 10px;
+}
+
+.preset_bttn
+{
+    width: 120px;
+    height: 45px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.preset_label
+{
+    margin-top: 20px;
+}
+
+#chaos_bttn
+{
+    background-image: url(/bgs/buttons/4_CHAOS.png);
+    background-size: 100%;
+}
+
+.neutral_bttn
+{
+    background-image: url(/bgs/buttons/4_NEUTRAL.png);
+    background-size: 100%;
+}
+
+#law_bttn
+{
+    background-image: url(/bgs/buttons/4_LAW.png);
+    background-size: 100%;
+}
+
+#light_bttn
+{
+    background-image: url(/bgs/buttons/4A_LIGHT.png);
+    background-size: 100%;
+}
+
+#dark_bttn
+{
+    background-image: url(/bgs/buttons/4A_DARK.png);
+    background-size: 100%;
+}
+
+#bonds_bttn
+{
+    background-image: url(/bgs/buttons/4A_BONDS.png);
+    background-size: 100%;
+}
+
+#msscr_bttn
+{
+    background-image: url(/bgs/buttons/4A_MASSACRE.png);
+    background-size: 100%;
+}
+
+#light50_bttn
+{
+    background-image: url(/bgs/buttons/Light\ 50.png);
+    background-size: 100%;
+}
+
+#light75_bttn
+{
+    background-image: url(/bgs/buttons/Light\ 75.png);
+    background-size: 100%;
+}
+
+#light95_bttn
+{
+    background-image: url(/bgs/buttons/Light\ 95.png);
+    background-size: 100%;
+}
+
+#dark50_bttn
+{
+    background-image: url(/bgs/buttons/Dark\ 50.png);
+    background-size: 100%;
+}
+
+#dark75_bttn
+{
+    background-image: url(/bgs/buttons/Dark\ 75.png);
+    background-size: 100%;
+}
+
+#dark95_bttn
+{
+    background-image: url(/bgs/buttons/Dark\ 95.png);
+    background-size: 100%;
+}
+
+#ending_note
+{
+    font-size: smaller;
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#file_section
+{
+    display:flex;
+}
+
+.holder
+{
+    align-items: center;
+    display: flexbox;
+}
+
+.img_holder
+{
+    display: flex;
+    align-content: center;
+    margin:10px;
+}
+
+.algnimg
+{
+    height: 256px;
+    width: 512px;
+    border: 2px white solid;
+}
+
+.slide_align
+{
+    display: inline-flex;
+    align-items: center;
+    margin: 15px;
+}
+
+#slide_apoc
+{
+    display: block;
+    margin-bottom: 20px;
+}
+
+.apoc_slider
+{
+    margin: 50px;
+}
+
+#slide_4
+{
+    display: flex;
+    margin: 30px;
+}
+
+.theme-four
+{
+    --panel-bg: linear-gradient(90deg, rgba(0,36,255,1) 25%, rgba(255,0,0,1) 50%, rgba(255,221,0,1) 75%);
+    --panel-bg-fill: transparent;
+    --height: 0.25rem;
+    --width: 500px;
+    
+
+}
+
+.theme-apoc
+{
+    --panel-bg: linear-gradient(90deg, rgba(0,36,255,1) 25%, rgba(255,0,0,1) 50%, rgba(255,221,0,1) 75%);
+    --panel-bg-fill: transparent;
+    --height: 0.25rem;
+    --width: 500px;
+}
+
+.shape-lilguy
+{
+    --pointer-height:2rem;
+    --pointer-width:2rem;
+    --pointer-bg: url(bgs/lil_guy.gif) no-repeat;
+    --pointer-bg-hover: url(bgs/lil_guy.gif) no-repeat;
+    --pointer-bg-focus: url(bgs/lil_guy.gif) no-repeat;
+    --pointer-radius: "0";
+    --pointer-border: "none";
+    --pointer-border-hover: "none";
+    --pointer-border-focus:"none";
+    --pointer-shadow:"none";
+    --pointer-shadow-hover:"none";
+    --pointer-shadow-focus:"none";
+
+
+}
+
+p,h1,div 
+{
+    place-content: center;
+    justify-content: center;
+    display: block;
+    text-align: center;
+    color: lightgreen;
+    font-size: 12pt;
+    letter-spacing: 1px;
+}
+
+ol,ul 
+{
+    display: table;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body 
+{
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(bg.jpg);
+    background-color: green;
+    background-blend-mode:overlay;
+    font-family: 'Silkscreen';
+    font-size: small;
+    margin: 0;
+}
